@@ -1,0 +1,35 @@
+<template name="navbar">
+	<nav class="navbar navbar-default navbar-inverse " role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"><img style="width: 150px; margin-top: -10px;" src="http://www.mountainbrook.net/_/rsrc/1248895640130/config/app/images/customLogo/customLogo.gif?revision=61"></a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="{{activePage 'home'}}"><a href="/">Home</a></li>
+					{{#if currentUser}}
+					<li class="{{activePage 'sendMessage'}}"><a href="/messages/new">Send Message</a></li>
+					<li class="{{activePage 'addContact'}}"><a href="/contacts/new">Add Contact</a></li>
+					<li class="{{activePage 'viewContacts'}}"><a href="/contacts/all">View Contacts</a></li>
+					<li class="{{activePage 'inbox'}}"><a href="/inbox">Inbox</a></li>
+					<li class="{{activePage 'outbox'}}"><a href="/outbox">Outbox</a></li>
+					{{/if}}
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<!--login buttons -->
+					{{> loginButtons}}
+				</ul>
+
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+</template>

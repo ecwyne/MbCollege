@@ -1,0 +1,91 @@
+<template name="viewContact">
+	<div class="panel panel-default">
+		  <div class="panel-heading">
+				<h3 class="panel-title">Name</h3>
+		  </div>
+		  <div class="panel-body">
+				{{firstName}} {{lastName}}
+		  </div>
+	</div>
+	<div class="panel panel-default">
+		  <div class="panel-heading">
+				<h3 class="panel-title">Phone Number</h3>
+		  </div>
+		  <div class="panel-body">
+				{{formatPhone phone}}
+		  </div>
+	</div>
+	<div class="panel panel-default">
+		  <div class="panel-heading">
+				<h3 class="panel-title">Email</h3>
+		  </div>
+		  <div class="panel-body">
+				{{email}}
+		  </div>
+	</div>
+	<div class="jumbotron">
+		<div class="container">
+			<h1>Send Message</h1>
+			<textarea name="messageText" id="messageText" cols="30" rows="5" class="form-control"></textarea>
+			<h1>Preview</h1>
+			<div class="panel panel-default">
+				<div style="white-space: pre-line;" class="panel-body">{{preview}}</div>
+			</div>
+			<p>
+				{{#unless sentMessages}}
+				<a class="btn btn-primary btn-lg sendMessageBtn">Send to {{activeCount}} people!</a>
+				{{/unless}}
+			</p>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<!-- Default panel contents -->
+		<div class="panel-heading">Sent Messages</div>
+			<!-- Table -->
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Phone</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each sentMessages}}
+					<tr>
+						<td>{{phone}}</td>
+						<td>{{status}}</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Messages</h3>
+		</div>
+			<table class="table text-center">
+				<thead>
+					<tr>
+						<th style="text-align: center;">Sent/Received</th>
+						<th style="text-align: center;">Date</th>
+						<th style="text-align: center;">Message</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each messages}}
+					<tr>
+						<td>
+							{{#if typeSpan type}}
+								<span style="color: green;" class="glyphicon glyphicon-arrow-right"></span>
+							{{else}}
+								<span style="color: red;" class="glyphicon glyphicon-arrow-left"></span>
+							{{/if}}
+						</td>
+						<td>{{date}}</td>
+						<td>{{text}}</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+	</div>
+</template>

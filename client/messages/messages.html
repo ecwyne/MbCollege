@@ -1,0 +1,26 @@
+<template name="messages">
+	<table class="table table-bordered table-hover">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Date</th>
+				<th>Status</th>
+				<th>Message</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each messages}}
+			<tr>
+				<td>
+					{{#with getContact phone}}
+						<a href="/contacts/view/{{_id}}">{{firstName}} {{lastName}}</a>
+					{{/with}}
+				</td>
+				<td>{{formatDate date}}</td>
+				<td>{{status}}</td>
+				<td>{{text}}</td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</template>
