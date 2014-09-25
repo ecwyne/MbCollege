@@ -2,10 +2,10 @@
 	<table class="table table-hover">
 		<thead>
 			<tr>
+				<th>Active</th>
 				<th>Name</th>
 				<th>Phone</th>
 				<th>Email</th>
-				<th>Active</th>
 				<th>Edit</th>
 			</tr>
 		</thead>
@@ -13,19 +13,19 @@
 			{{#each contacts}}
 			<tr>
 				<td>
-					<a href="/contacts/view/{{_id}}">
-					{{firstName}} {{lastName}}
-					</a>
-				</td>
-				<td>{{formatPhone phone}}</td>
-				<td>{{email}}</td>
-				<td>
 					{{#if active}}
 						<span style="color: green; cursor: pointer;" class="glyphicon glyphicon-check"></span>
 					{{else}}
 						<span style="color: red; cursor: pointer;" class="glyphicon glyphicon-unchecked"></span>
 					{{/if}}
 				</td>
+				<td>
+					<a href="/contacts/view/{{_id}}">
+					{{firstName}} {{lastName}}
+					</a>
+				</td>
+				<td>{{formatPhone phone}}</td>
+				<td>{{email}}</td>
 				<td>
 					<a href="/contacts/edit/{{_id}}">
 						<span class="glyphicon glyphicon-list-alt"></span>
