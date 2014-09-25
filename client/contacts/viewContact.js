@@ -25,6 +25,9 @@ Template.viewContact.events({
 			sentDep.changed();
 			Meteor.call('sendSMS', e.phone, Template.viewContact.template(e), Template.viewContact.sentId);
 		});
+	},
+	'click .glyphicon-refresh': function(e){
+		Meteor.call('retrySMS', this);
 	}
 });
 
@@ -42,4 +45,8 @@ Template.viewContact.sentMessages = function(){
 	if (!Template.viewContact.sentId)
 		return;
 	return Messages.find({sentId: Template.viewContact.sentId});
+}
+
+Template.viewContact.sentError = function(){
+	return this.status == 'error';
 }

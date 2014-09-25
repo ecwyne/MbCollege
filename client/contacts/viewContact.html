@@ -75,13 +75,17 @@
 					{{#each messages}}
 					<tr>
 						<td>
+							{{#unless sentError}}
 							{{#if typeSpan type}}
 								<span style="color: green;" class="glyphicon glyphicon-arrow-right"></span>
 							{{else}}
 								<span style="color: red;" class="glyphicon glyphicon-arrow-left"></span>
 							{{/if}}
+							{{else}}
+								<span style="color: red; cursor: pointer;" class="glyphicon glyphicon-refresh"></span>
+							{{/unless}}
 						</td>
-						<td>{{date}}</td>
+						<td>{{formatDate date}}</td>
 						<td>{{text}}</td>
 					</tr>
 					{{/each}}

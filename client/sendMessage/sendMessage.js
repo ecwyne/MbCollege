@@ -13,9 +13,12 @@ Template.sendMessage.events({
 	'click .sendMessageBtn': function(){
 		Template.sendMessage.sentId = Date.now();
 		var contacts = Contacts.find({active: true}).fetch();
+		var timeout = 0;
 		_.each(contacts, function (e){
-			sentDep.changed();
-			Meteor.call('sendSMS', e.phone, Template.sendMessage.template(e), Template.sendMessage.sentId);
+			Meteor.setTimeout(function(){
+				sentDep.changed();
+				Meteor.call('sendSMS', e.phone, Template.sendMessage.template(e), Template.sendMessage.sentId);
+			}, 1250 * timeout++);
 		});
 	}
 });

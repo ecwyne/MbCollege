@@ -22,8 +22,25 @@ Meteor.methods({
 				if (sentId){
 					obj.sentId = sentId;
 				}
+				if (!obj.messageId){
+					console.log('text sent failure\nData:', data);
+					obj.status = 'error',
+					obj.messageId = Date.now();
+				}
 				Messages.insert(obj);
 			}
 		}));
+	},
+	retrySMS: function(message){
+		Nexmo.sendTextMessage(Meteor.settings.nexmo.phone, message.phone, message.text, {}, Meteor.bindEnvironment(function (err, data){
+			if (err){
+				console.log(err);
+				throw new Meteor.Error(500, 'Nexmo Server Error Occured');
+			} else {
+				if (data.messages[0]['message-id']){
+					Messages.update(message._id, {$set: {date: new Date(), status: 'sent', messageId: data.messages[0]['message-id']}});
+				}
+			}
+		}))
 	}
 })
