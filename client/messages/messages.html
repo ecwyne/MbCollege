@@ -6,6 +6,7 @@
 				<th>Date</th>
 				<th>Status</th>
 				<th>Message</th>
+				<th>Replied</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -19,6 +20,11 @@
 				<td>{{formatDate date}}</td>
 				<td>{{status}}</td>
 				<td>{{text}}</td>
+				<td>
+					{{#if hasReplied}}
+						<span style="color: green;" class="glyphicon glyphicon-check"></span>
+					{{/if}}
+				</td>
 			</tr>
 			{{/each}}
 		</tbody>
