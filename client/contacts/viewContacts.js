@@ -1,8 +1,12 @@
 Template.viewContacts.events({
 	'click .glyphicon-check': function(e){
-		Contacts.update(this._id, {$set: {active: false}})
+		var obj = {};
+		obj[e.currentTarget.dataset.key]= false
+		Contacts.update(this._id, {$set: obj})
 	},
 	'click .glyphicon-unchecked': function(e){
-		Contacts.update(this._id, {$set: {active: true}})
+		var obj = {};
+		obj[e.currentTarget.dataset.key]= true
+		Contacts.update(this._id, {$set: obj})
 	}
 })

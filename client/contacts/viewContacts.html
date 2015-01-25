@@ -1,12 +1,15 @@
 <template name="viewContacts">
-	<table class="table table-hover">
+	<table class="table table-hover text-center">
 		<thead>
 			<tr>
-				<th>Active</th>
-				<th>Name</th>
-				<th>Phone</th>
-				<th>Email</th>
-				<th>Edit</th>
+				<th style="text-align: center;">Active</th>
+				<th style="text-align: center;">Weekly</th>
+				<th style="text-align: center;">Ultimate</th>
+				<th style="text-align: center;">Welcome</th>
+				<th style="text-align: center;">Name</th>
+				<th style="text-align: center;">Phone</th>
+				<th style="text-align: center;">Email</th>
+				<th style="text-align: center;">Edit</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -14,9 +17,30 @@
 			<tr>
 				<td>
 					{{#if active}}
-						<span style="color: green; cursor: pointer;" class="glyphicon glyphicon-check"></span>
+						<span style="color: green; cursor: pointer;" data-key="active" class="glyphicon glyphicon-check"></span>
 					{{else}}
-						<span style="color: red; cursor: pointer;" class="glyphicon glyphicon-unchecked"></span>
+						<span style="color: red; cursor: pointer;" data-key="active" class="glyphicon glyphicon-unchecked"></span>
+					{{/if}}
+				</td>
+				<td>
+					{{#if weekly}}
+						<span style="color: green; cursor: pointer;" data-key="weekly" class="glyphicon glyphicon-check"></span>
+					{{else}}
+						<span style="color: red; cursor: pointer;" data-key="weekly" class="glyphicon glyphicon-unchecked"></span>
+					{{/if}}
+				</td>
+				<td>
+					{{#if ultimate}}
+						<span style="color: green; cursor: pointer;" data-key="ultimate" class="glyphicon glyphicon-check"></span>
+					{{else}}
+						<span style="color: red; cursor: pointer;" data-key="ultimate" class="glyphicon glyphicon-unchecked"></span>
+					{{/if}}
+				</td>
+				<td>
+					{{#if welcome}}
+						<span style="color: green; cursor: pointer;" data-key="welcome" class="glyphicon glyphicon-check"></span>
+					{{else}}
+						<span style="color: red; cursor: pointer;" data-key="welcome" class="glyphicon glyphicon-unchecked"></span>
 					{{/if}}
 				</td>
 				<td>
