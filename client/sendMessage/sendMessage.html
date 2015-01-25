@@ -1,6 +1,11 @@
 <template name="sendMessage">
 	<div class="jumbotron">
 		<div class="container">
+			<select id="activeGroupSelect">
+				<option value="weekly">Weekly Reminder</option>
+				<option value="ultimate">Ultimate Frisbee</option>
+				<option value="welcome">Welcome Message</option>
+			</select>
 			<h1>Send Message</h1>
 			<textarea name="messageText" id="messageText" cols="30" rows="5" class="form-control"></textarea>
 			<h1>Preview</h1>
