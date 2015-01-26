@@ -1,3 +1,11 @@
 <template name="editByNum">
-	
+	{{#autoForm collection="Contacts" id="updateContactByNum" type="update" doc=this}}
+		{{> afQuickField name='firstName'}}
+		{{> afQuickField name='lastName'}}
+		{{> afQuickField name='email'}}
+		{{> afQuickField name='gender' options="allowed"}}
+		{{> afQuickField name='weekly'}}
+		{{> afQuickField name='ultimate'}}
+	<button type="submit" class="btn btn-primary">Update</button>
+	{{/autoForm}}
 </template>
